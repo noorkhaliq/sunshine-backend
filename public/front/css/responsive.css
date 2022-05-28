@@ -1,0 +1,95 @@
+/*// X-Small devices (portrait phones, less than 576px)*/
+@media (max-width: 576px) {
+    .text_box h1 {
+        font-size: 64px;
+    }
+    .text_box h1 strong{
+        font-size: 64px;
+    }
+    .logo a img {
+        position: relative;
+        z-index: 9999;
+        margin-left: -27px;
+    }
+    .logo::before {
+        position: absolute;
+        content: "";
+        top: -35px;
+        background: url(../images/lo_be-Copy.png);
+        width: 270px;
+        height: 139px;
+        height: 171px;
+        left: -40px;
+        background-repeat: no-repeat;
+    }
+    .titlepage h2 {
+        font-size: 29px;
+        line-height: 31px;
+    }
+    .using {
+        margin: 0 10px 0 10px;
+    }
+    .padding_right_0 {
+        padding-right: 15px!important;
+    }
+    .form_main {
+        padding-left: 12px !important;
+    }
+    .main_form {
+        padding: 32px 15px;
+        margin-top: 12px;
+    }
+    .map {
+        padding-right: 12px !important;
+    }
+    .newslatter h4 {
+        font-size: 24px;
+    }
+    .bottom_form .enter{
+        width: 100%;
+    }
+    .bottom_form{
+        display: inherit;
+    }
+    .sub_btn {
+        margin-right: 6rem;
+    }
+    .link_menu {
+        padding-left: 0px;
+    }
+    .conta {
+        padding-left: 0px;
+    }
+    .navbar-toggler {
+        margin-left: 140px;
+        /*background: black;*/
+        margin-top: -40px;
+
+    }
+
+}
+
+/*// Small devices (landscape phones, 576px and up)*/
+
+@media (min-width: 576px) {
+
+}
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/*// Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+/*// X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+
+}
+
+
+
+

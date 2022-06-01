@@ -20,7 +20,6 @@ class FrontendController extends Controller
             'about' => Pages::where('slug', 'about-us')->first(),
             'header' => Pages::where('slug', 'header')->first(),
             'products' => Products::latest()->limit(4)->get(),
-            'blog' => Pages::where('slug', 'blog')->first(),
             'gallery' => Gallery::latest()->limit(6)->get()]);
     }
 
@@ -83,6 +82,25 @@ class FrontendController extends Controller
     }
 
     //  ........................................
+
+    function subscribeSave(Request $request)
+    {
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(),[
+            'email' => 'required'
+        ]);
+
+        if(!$validator->passes()){
+            return response()->json(['status'=>0, 'error'=>$validator->errors()->toArray()]);
+        }else{
+            $values = [
+                'email' => $request->email,
+            ];
+            $query = DB::table('contactus')->insert($values);
+            if( $query ){
+                return response()->json(['status'=>1, 'message'=>'Your subscription has been submitted']);
+            }
+        }
+    }
 
     function saveNew(Request $request)
     {

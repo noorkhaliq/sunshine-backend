@@ -24,16 +24,18 @@
             </div>
             <div class="row">
                 @foreach($products as $product)
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div  class="our_products">
-                        <div class="product">
-                            <a href="{{route('front.products.detail',$product->slug)}}" ><img src="{{asset('uploads/'.$product->image)}}" alt="#"/></a>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div  class="our_products">
+                            <a href="{{route('front.products.detail',$product->slug)}}">
+                                <div class="product">
+                                    <figure><img src="{{asset('uploads/'.$product->image)}}" alt="#"/></figure>
+                                </div>
+                                <h3>{{$product->title}}</h3>
+                                <span>{{$product->sub_title}}</span>
+                                <p>{!! \Illuminate\Support\Str::words(strip_tags($product->description),30) !!}</p>
+                            </a>
                         </div>
-                        <h3>{{$product->title}}</h3>
-                        <span>{{$product->sub_title}}</span>
-                        <p>{{\Illuminate\Support\Str::words(strip_tags($product->description),30)}}</p>
                     </div>
-                </div>
                 @endforeach
             </div>
             {!! $products->links() !!}

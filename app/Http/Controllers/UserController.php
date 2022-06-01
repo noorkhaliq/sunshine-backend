@@ -36,12 +36,10 @@ class UserController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'email' => 'required|unique:users',
-            'password' => 'required|min:6',
+            'email' => 'required',
 
         ]);
-        $data = request()->only(['name', 'email', 'password']);
-        $data['password'] = bcrypt(request()->password);
+        $data = request()->only(['name', 'email']);
 
         User::where('id', $id)->update($data);
         return redirect()->route('user.index');

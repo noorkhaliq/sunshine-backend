@@ -13,13 +13,7 @@
                                     <thead>
                                     <tr>
                                         <th>
-                                            #
-                                        </th>
-                                        <th>
                                             title
-                                        </th>
-                                        <th>
-                                            sub_title
                                         </th>
                                         <th>
                                             image
@@ -51,9 +45,7 @@
                 "processing": true,
                 "serverSide": true,
                 "columns": [
-                    { data: "id",name:'id' },
                     { data: "title",name:'title' },
-                    { data: "sub_title",name:'sub_title' },
                     { data: 'file_image', name:'image', orderable: false, searchable: false, render: function(data) {
                             return `<img src="${data}" width="100" height="100">`;
                     }},

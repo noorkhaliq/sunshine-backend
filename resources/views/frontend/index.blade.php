@@ -55,14 +55,15 @@
                 @foreach($products as $product)
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div  class="our_products">
+                        <a href="{{route('front.products.detail',$product->slug)}}">
                         <div class="product">
-                            <a href="{{route('front.products.detail',$product->slug)}}">
                                 <figure><img src="{{asset('uploads/'.$product->image)}}" alt="#"/></figure>
-                            </a>
+
                         </div>
                         <h3>{{$product->title}}</h3>
                         <span>{{$product->sub_title}}</span>
                         <p>{!! \Illuminate\Support\Str::words(strip_tags($product->description),30) !!}</p>
+                        </a>
                     </div>
                 </div>
                     @endforeach
@@ -71,27 +72,6 @@
     </div>
     <!-- end our products -->
 
-    <div class="using">
-        <div class="container-fluid">
-            <div class="row d_flex">
-                <div class="col-lg-6 col-md-6  titlepage ">
-                    <h2>{{$blog->title}}</h2>
-                    <p>
-                        {!! \Illuminate\Support\Str::words(strip_tags($blog->description),50) !!}
-                    </p>
-
-                    <a class="read_more white_bg" href="{{route('front.about','blog')}}"> Read More</a>
-
-                </div>
-                <div class="col-lg-5 col-md-5  offset-md-1 padding_right_0">
-                    <div class="frout_img ">
-                        <img src="{{asset('uploads/'.$blog->image)}}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end using -->
     <!-- gallery -->
     <div class="gallery">
         <div class="container">
@@ -159,7 +139,7 @@
 
                            <div class="col-md-12">
                                <button  type="submit" class="send_btn button btn bg-dark text-light text-center">
-                                   <i class="loading-icon fa fa-spinner fa-spin hide " style="margin-right: 11px;"></i>
+                                   <i id="spinner" class="loading-icon fa fa-spinner fa-spin hide " style="margin-right: 11px;"></i>
                                    <span class="btn-txt">Send</span>
                                </button>
                            </div>
@@ -169,8 +149,6 @@
             </div>
         </div>
     </div>
-
-
     <script src="{{ asset('jquery-3.5.0.min.js') }}"></script>
     <script src="{{ asset('main.js') }}"></script>
     <script>
@@ -179,10 +157,8 @@
                 $(".result").text("");
                 $(".loading-icon").removeClass("hide");
                 $(".button").attr("disabled", false);
-
             });
         });
-
         $(document).ajaxSend(function() {
             $(".loading-icon").show();
 
@@ -198,8 +174,6 @@
         .hide {
             display: none;
         }
-    </style>
-    <style>
         .responsive-map{
             overflow: hidden;
             padding-bottom:56.25%;

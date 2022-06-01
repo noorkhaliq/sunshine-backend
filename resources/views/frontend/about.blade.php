@@ -12,8 +12,6 @@
             </div>
         </div>
     </div>
-
-
         <div class="gallery bg-light">
             <div class="container">
                 <div class="row mt-3">
@@ -22,14 +20,10 @@
                             <figure><img src="{{asset('uploads/'.$about->image)}}" alt="#"/></figure>
                         </div>
                         <h1>{{$about->title}}</h1>
-                        <p class="">{{$about->description}}</p>
+                        <p>{{$about->description}}</p>
                     </div>
                 </div>
             </div>
-    </div>
-
-
-
-
+        </div>
     </div>
 @endsection

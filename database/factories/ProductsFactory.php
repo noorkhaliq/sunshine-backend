@@ -18,7 +18,8 @@ class ProductsFactory extends Factory
             'title' => $this->faker->words(6, true),
             'sub_title' => $this->faker->words(6, true),
             'slug' => Str::slug($this->faker->words(3, true)),
-            'description' => $this->faker->sentences(40, true)
+            'description' => $this->faker->sentences(40, true),
+
         ];
     }
 }

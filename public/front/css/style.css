@@ -761,7 +761,7 @@ button {
      border: #fff solid 8px;
 }
 
-.sub_btn:hover {
+.sub_button:hover {
      background-color: #ff3556;
      transition: ease-in all 0.5s;
      color: #fff;

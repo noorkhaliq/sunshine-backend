@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class GalleryFactory extends Factory
+class SettingsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,10 +14,7 @@ class GalleryFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->words(6, true),
-            'slug' => Str::slug($this->faker->words(3, true)),
-            'description' => $this->faker->sentences(40, true),
-
+            //
         ];
     }
 }

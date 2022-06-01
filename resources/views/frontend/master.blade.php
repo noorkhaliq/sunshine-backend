@@ -18,8 +18,6 @@
     <link rel="stylesheet" href="{{asset('front')}}/css/style.css">
     <!--    responsive css-->
     <link rel="stylesheet" href="{{asset('front')}}/css/responsive.css">
-    <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif"/>
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="{{asset('front')}}/css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
@@ -97,9 +95,10 @@
                 <div class="col-md-8 offset-md-2">
                     <div class="newslatter">
                         <h4>Subscribe Our Newsletter</h4>
-                        <form class="bottom_form">
-                            <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                            <button class="sub_btn">subscribe</button>
+                        <form id="subscribe_form" class="bottom_form" method="post" action="{{route('front.subscribe.save')}}">
+                            @csrf
+                            <input class="enter" placeholder="Enter your email" type="email" name="email" required="required">
+                            <button type="submit" class="sub_btn">subscribe</button>
                         </form>
                     </div>
                 </div>
@@ -129,9 +128,7 @@
                         @foreach($topFood as $food)
                         <li><a href="{{route('front.products.detail' , $food->slug)}}">{{$food->title}}</a></li>
                         @endforeach
-
                     </ul>
-
                 </div>
                 <div class="col-lg-3 offset-mdlg-2 col-md-4 offset-md-1">
                     <h3>Contact </h3>
@@ -158,5 +155,31 @@
     </div>
 </footer>
 <!-- end footer-->
+<script>
+    $(function(){
+        $("#subscribe_form").on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url:$(this).attr('action'),
+                method:$(this).attr('method'),
+                data:new FormData(this),
+                processData:false,
+                dataType:'json',
+                contentType:false,
+                success:function(data){
+                    if(data.status == 0){
+                        $.each(data.error, function(prefix, val){
+                            $(prefix+'_error').text(val[0]);
+                        });
+                    }else{
+                        $('#subscribe_form')[0].reset();
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>

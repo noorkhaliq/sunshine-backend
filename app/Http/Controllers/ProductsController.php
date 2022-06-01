@@ -44,7 +44,7 @@ class ProductsController extends Controller
         $data =request()->only(['title','description','sub_title']);
 
         if (request()->hasFile('image')  and request()->file('image')){
-            $data['image'] = $this->uploads();
+            $data['image'] = $this->uploads(request()->file('image'));
         }
 
         Products::where('id',$id)->update($data);

@@ -54,10 +54,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('jquery-3.5.0.min.js') }}"></script>
-    <script src="{{ asset('main.js') }}"></script>
     <script>
-        $(document).ready(function() {
+/*        $(document).ready(function() {
             $(".button").on("click", function() {
                 $(".result").text("");
                 $(".loading-icon").removeClass("hide");
@@ -72,7 +70,7 @@
         })
         $(document).ajaxComplete(function() {
             $('.loading-icon').hide();
-        });
+        });*/
     </script>
     <style>
         .button:disabled {
@@ -97,6 +95,4 @@
             position:absolute;
         }
     </style>
-
-
 @endsection

@@ -108,7 +108,7 @@ class FrontendController extends Controller
             'name'=>'required|min:3',
             'phone'=>'required|min:3',
             'message'=>'required',
-            'email' => 'required|unique:contactus'
+            'email' => 'required'
         ]);
 
         if(!$validator->passes()){

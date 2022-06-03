@@ -149,9 +149,9 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('jquery-3.5.0.min.js') }}"></script>
-    <script src="{{ asset('main.js') }}"></script>
-    <script>
+
+
+<!--    <script>
         $(document).ready(function() {
             $(".button").on("click", function() {
                 $(".result").text("");
@@ -166,7 +166,7 @@
         $(document).ajaxComplete(function() {
             $('.loading-icon').hide();
         });
-    </script>
+    </script>-->
     <style>
         .button:disabled {
             opacity: 0.9;

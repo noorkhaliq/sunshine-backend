@@ -27,7 +27,7 @@
     <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+    <script src="{{ asset('jquery-3.5.0.min.js') }}"></script>
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -174,12 +174,18 @@
                         });
                     }else{
                         $('#subscribe_form')[0].reset();
-                        alert(data.message);
+
+                        $.notify(data.message, "success");
                     }
+                },
+                error: function (e) {
+                    $.notify(e.getMessage(), "error");
                 }
             });
         });
     });
 </script>
+<script src="{{ asset('/assets/js/notify.min.js') }}"></script>
+<script src="{{ asset('main.js') }}"></script>
 </body>
 </html>

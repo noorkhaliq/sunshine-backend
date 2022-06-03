@@ -2,6 +2,8 @@ $(function(){
 
     $("#main_form").on('submit', function(e){
         e.preventDefault();
+        $(".loading-icon").show();
+
         $.ajax({
             url:$(this).attr('action'),
             method:$(this).attr('method'),
@@ -19,8 +21,15 @@ $(function(){
                     });
                 }else{
                     $('#main_form')[0].reset();
-                    alert(data.msg);
+
+                    $.notify(data.msg, "success");
                 }
+
+                $(".loading-icon").hide();
+            },
+            error: function (err) {
+                $(".loading-icon").hide();
+                $.notify("Error occurred while sending your email, please try later.", "error");
             }
         });
     });

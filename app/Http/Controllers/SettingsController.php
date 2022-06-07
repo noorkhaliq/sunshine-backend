@@ -62,7 +62,7 @@ class SettingsController extends Controller
             })
             ->addColumn('actions', function ($q){
                 return '  <a class="btn btn-primary" href="'.route('settings.edit',$q->id).'">Edit</a>
-                       | <a class="btn btn-danger deletePage" href="'.route('settings.delete',$q->id).'" >Delete</a>';
+                       | <a class="btn btn-danger deleteSettings" href="'.route('settings.delete',$q->id).'" >Delete</a>';
             })
             ->rawColumns(['actions'])
             ->make(true);

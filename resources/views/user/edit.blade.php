@@ -12,8 +12,8 @@
                                 @csrf
                                 @method('put')
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Username</label>
-                                    <input type="text" name="name" class="form-control" value="{{$user->name}}" placeholder="Username" required>
+                                    <label for="exampleInputUsername1">Name</label>
+                                    <input type="text" name="name" class="form-control" value="{{$user->name}}" placeholder="Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>

@@ -37,11 +37,11 @@ class UserController extends Controller
         request()->validate([
             'name' => 'required',
             'email' => 'required',
-
         ]);
         $data = request()->only(['name', 'email']);
 
         User::where('id', $id)->update($data);
+
         return redirect()->route('user.index');
     }
 
@@ -55,7 +55,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'password' => 'required|min:6',
+            'password' => 'required|min:4',
             'email' => 'required|unique:users'
         ]);
         $data = $request->only(['name', 'email',]);

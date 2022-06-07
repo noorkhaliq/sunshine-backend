@@ -55,7 +55,7 @@ class GalleryController extends Controller
     public function delete($id)
     {
         Gallery::destroy($id);
-        return redirect()->route('image.index');
+        return redirect()->route('gallery.index');
     }
 
     public function list()
@@ -65,10 +65,10 @@ class GalleryController extends Controller
                 return asset('uploads/'.$row->image);
             })
             ->addColumn('short_description',function ($q){
-                return \Illuminate\Support\Str::words(strip_tags($q->description),5);})
+                return \Illuminate\Support\Str::words(strip_tags($q->description),2);})
             ->addColumn('actions',function ($q){
                 return '<a class="btn btn-primary" href="'.route('gallery.edit',$q->id).'">Edit</a>
-                        <a class="btn btn-danger galleryDelete" href="'.route('gallery.delete',$q->id).'">Delete</a>';
+                        <a class="btn btn-danger deleteGallery" href="'.route('gallery.delete',$q->id).'">Delete</a>';
             })
             ->rawColumns(['actions'])
             ->make(true);

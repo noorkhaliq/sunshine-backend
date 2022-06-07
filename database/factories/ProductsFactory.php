@@ -15,7 +15,7 @@ class ProductsFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->words(6, true),
+            'title' => $this->faker->words(2, true),
             'sub_title' => $this->faker->words(6, true),
             'slug' => Str::slug($this->faker->words(3, true)),
             'description' => $this->faker->sentences(40, true),

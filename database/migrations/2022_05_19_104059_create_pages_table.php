@@ -22,6 +22,7 @@ class CreatePagesTable extends Migration
             $table->text('description')->nullable();
             $table->string('type')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

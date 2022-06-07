@@ -71,7 +71,7 @@ class ProductsController extends Controller
             })
             ->addColumn('actions', function ($q){
                 return '  <a class="btn btn-primary" href="'.route('products.edit',$q->id).'">Edit</a>
-                       | <a class="btn btn-danger deletePage" href="'.route('products.delete',$q->id).'" >Delete</a>';
+                       | <a class="btn btn-danger deleteProducts" href="'.route('products.delete',$q->id).'" >Delete</a>';
             })
             ->rawColumns(['actions'])
             ->make(true);

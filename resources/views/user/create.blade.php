@@ -11,8 +11,8 @@
                             <form  method="post" action="{{route('user.save')}}" class="forms-sample">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Username</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Username">
+                                    <label for="exampleInputUsername1">Name</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>

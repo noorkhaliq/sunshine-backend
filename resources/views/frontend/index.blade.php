@@ -150,23 +150,6 @@
         </div>
     </div>
 
-
-<!--    <script>
-        $(document).ready(function() {
-            $(".button").on("click", function() {
-                $(".result").text("");
-                $(".loading-icon").removeClass("hide");
-                $(".button").attr("disabled", false);
-            });
-        });
-        $(document).ajaxSend(function() {
-            $(".loading-icon").show();
-
-        })
-        $(document).ajaxComplete(function() {
-            $('.loading-icon').hide();
-        });
-    </script>-->
     <style>
         .button:disabled {
             opacity: 0.9;

@@ -159,7 +159,6 @@
     $(function(){
         $("#subscribe_form").on('submit', function(e){
             e.preventDefault();
-
             $.ajax({
                 url:$(this).attr('action'),
                 method:$(this).attr('method'),
@@ -174,7 +173,6 @@
                         });
                     }else{
                         $('#subscribe_form')[0].reset();
-
                         $.notify(data.message, "success");
                     }
                 },

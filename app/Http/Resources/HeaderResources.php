@@ -15,10 +15,10 @@ class HeaderResources extends JsonResource
     public function toArray($request)
     {
         return[
-            'id' => $this->id,
-            'title' => $this->title,
-            'sub_title' => $this->sub_title,
-            'description' => $this->description,
+            'id'         => $this->id,
+            'title'      => $this->title,
+            'sub_title'  => $this->sub_title,
+            'description'=> $this->description,
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s')
         ];

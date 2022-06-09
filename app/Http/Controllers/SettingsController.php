@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Settings;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class SettingsController extends Controller
@@ -22,13 +21,15 @@ class SettingsController extends Controller
     public function save(Request $request)
     {
         $data =$request->only(['title','link','class']);
+
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploads(request()->file('image'));
         }
+
         Settings::create($data);
+
         return redirect()->route('settings.index');
     }
-
 
     public function edit($id)
     {
@@ -38,21 +39,20 @@ class SettingsController extends Controller
     public function update($id)
     {
         $data =request()->only(['title','link','class']);
+
         if (request()->hasFile('image')  and request()->file('image')){
             $data['image'] = $this->uploads(request()->file('image'));
         }
+
         Settings::where('id',$id)->update($data);
         return redirect()->route('settings.index');
     }
-
-
 
     public function delete($id)
     {
         Settings::destroy($id);
         return redirect()->route('settings.index');
     }
-
 
     public function list()
     {
@@ -66,6 +66,5 @@ class SettingsController extends Controller
             })
             ->rawColumns(['actions'])
             ->make(true);
-
     }
 }

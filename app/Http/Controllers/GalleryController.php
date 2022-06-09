@@ -23,34 +23,34 @@ class GalleryController extends Controller
     public function update($id)
     {
         $data = request()->only(['title','description']);
-        if (request()->hasFile('image')  and request()->file('image')){
+
+        if (request()->hasFile('image')  and request()->file('image')) {
             $data['image'] = $this->uploads(request()->file('image'));
         }
+
         Gallery::where('id',$id)->update($data);
+
         return redirect()->route('gallery.index');
     }
-
 
     public function create()
     {
         return view('gallery.create');
     }
 
-
-
     public function save(Request $request)
     {
         $data = $request->only(['title','description']);
+
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploads(request()->file('image'));
         }
-       $page =  Gallery::create($data);
+
+        $page = Gallery::create($data);
         $page->update(['slug' => Str::slug($request->title).'-'.$page->id]);
 
         return redirect()->route('gallery.index');
     }
-
-
 
     public function delete($id)
     {
@@ -72,7 +72,5 @@ class GalleryController extends Controller
             })
             ->rawColumns(['actions'])
             ->make(true);
-
     }
-
 }

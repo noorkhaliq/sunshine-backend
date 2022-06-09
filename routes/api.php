@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\AboutController;
+use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\ImageController;
+use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\SocialController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,15 +22,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-    Route::group(['prefix' => 'v1'], function() {
 
-        Route::get('dashboard',             [\App\Http\Controllers\Api\DashboardController::class,     'dashboard']);
-        Route::get('settings',                [\App\Http\Controllers\Api\SocialController::class,     'settings']);
-        Route::get('about',                 [\App\Http\Controllers\Api\AboutController::class,     'about']);
-        Route::get('products',              [\App\Http\Controllers\Api\ProductsController::class,     'products']);
-        Route::get('images',                [\App\Http\Controllers\Api\ImageController::class,     'images']);
+Route::group(['prefix' => 'v1'], function() {
 
-//        Route::get('mainIndexPage',                  [\App\Http\Controllers\Api\PageController::class,     'mainPage']);
-//        Route::get('mainIndexPage/{id}',              [\App\Http\Controllers\Api\PageController::class,     'pageId']);
+        Route::get('dashboard',  [DashboardController::class, 'index']);
+        Route::get('settings',   [SocialController::class,  'index']);
+        //Route::get('about',      [AboutController::class,     'about']);
+        Route::get('products',   [ProductsController::class,  'index']);
+        //Route::get('images',     [ImageController::class,     'images']);
 
 });

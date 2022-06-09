@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
-use App\Models\Pages;
 use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Facades\Validator;
-
-
 
 class UserController extends Controller
 {
@@ -18,7 +14,8 @@ class UserController extends Controller
     public function dash()
     {
         return view('dashboard', [
-            'products' => Products::count(),'gallery'=>Gallery::count()]);
+            'products' => Products::count(),'gallery'=>Gallery::count()
+        ]);
     }
 
     public function index()
@@ -38,13 +35,13 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
         ]);
+
         $data = request()->only(['name', 'email']);
 
         User::where('id', $id)->update($data);
 
         return redirect()->route('user.index');
     }
-
 
     public function create()
     {
@@ -58,12 +55,14 @@ class UserController extends Controller
             'password' => 'required|min:4',
             'email' => 'required|unique:users'
         ]);
+
         $data = $request->only(['name', 'email',]);
         $data['password'] = bcrypt(request()->password);
+
         User::create($data);
+
         return redirect()->route('user.index');
     }
-
 
     public function delete($id)
     {
@@ -84,6 +83,4 @@ class UserController extends Controller
             ->rawColumns(['actions'])
             ->make(true);
     }
-
-
 }

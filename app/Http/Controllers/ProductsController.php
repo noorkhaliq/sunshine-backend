@@ -14,25 +14,24 @@ class ProductsController extends Controller
         return view('products.index');
     }
 
-
     public function create()
     {
         return view('products.create');
     }
 
-
     public function save(Request $request)
     {
         $data =$request->only(['title','description','sub_title']);
+
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploads(request()->file('image'));
         }
+
         $page = Products::create($data);
         $page->update(['slug' => Str::slug($request->title).'-'.$page->id]);
 
         return redirect()->route('products.index');
     }
-
 
     public function edit($id)
     {
@@ -51,8 +50,6 @@ class ProductsController extends Controller
 
         return redirect()->route('products.index');
     }
-
-
 
     public function delete($id)
     {
@@ -77,5 +74,4 @@ class ProductsController extends Controller
             ->make(true);
 
     }
-
 }
